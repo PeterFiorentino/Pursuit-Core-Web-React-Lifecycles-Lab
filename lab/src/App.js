@@ -2,8 +2,8 @@ import React from 'react';
 import Form from './Components/Form';
 import List from "./Components/List"
 import './App.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 
 
 class App extends React.Component {
@@ -33,7 +33,6 @@ class App extends React.Component {
     }
     toDoArr.push(newToDo)
 
-    this.notifyAdded()
 
     this.setState({
       toDo: "",
@@ -50,8 +49,6 @@ class App extends React.Component {
 
     for(let i = 0; i < newArr.length; i++) {
       if(newArr[i].toDo === event.target.id) {
-        console.log("hi")
-        this.notifyDelete(newArr[i].toDo)
         newArr.splice(i, 1)
       }
     }
@@ -65,9 +62,6 @@ class App extends React.Component {
 
 
   }
-
-  notifyAdded = () => toast(`New to do added: ${this.state.toDo}`)
-  notifyDelete = (el) => toast(`To do deleted: ${el}`)
 
   render() {
     const {toDo, allToDos} = this.state;
