@@ -1,5 +1,5 @@
 import React from 'react';
-import Inputs from './Components/Form';
+import Form from './Components/Form';
 import List from "./Components/List"
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -72,25 +72,16 @@ class App extends React.Component {
   render() {
     const {toDo, allToDos} = this.state;
 
-    const individualToDo = allToDos.map((element) => {
-      return(
-        <List 
-          key={element.toDo}
-          toDo={element.toDo}
-          deleteToDo={this.deleteToDo}
-          />
-      )
-    })
     return (
       <div className="App">
-        <Inputs 
+        <Form 
         toDo={toDo}
         changeInput={this.changeInput}
         handleFormSubmit={this.handleFormSubmit}
         />
-        <ul>
-          {individualToDo}
-        </ul>
+        <List 
+        allToDos={allToDos}
+        deleteToDo={this.deleteToDo}/>
         <ToastContainer />
       </div>
     );

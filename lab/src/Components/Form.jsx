@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Inputs = (props) => {
+const Form = (props) => {
     return(
         <form onSubmit={props.handleFormSubmit}>
             <input type="text" value={props.toDo} onChange={props.changeInput}></input>
@@ -8,4 +8,4 @@ const Inputs = (props) => {
     )
 }
 
-export default Inputs;
+export default Form;

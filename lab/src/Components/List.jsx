@@ -1,12 +1,21 @@
 import React from 'react';
+import ListItem from './ListItem';
 
-const List = (props) => {
+
+
+const individualToDo = (props) => {
+
     return(
-        <li>
-            <p>{props.toDo}</p>
-            <button id={props.toDo} onClick={props.deleteToDo}>Delete</button>
-        </li>
+        props.allToDos.map((element) => {
+        return(
+            <ListItem 
+                key={element.toDo}
+                toDo={element.toDo}
+                deleteToDo={props.deleteToDo}
+                />
+            )
+        })
     )
 }
 
-export default List
+export default individualToDo;
